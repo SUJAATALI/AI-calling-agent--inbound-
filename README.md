@@ -1,7 +1,67 @@
-# AI-Call-Agent-
-This application demonstrates how to use Python, Twilio Voice and Media Streams, and OpenAI's Realtime API to make a phone call to speak with an AI Assistant.
+# 📞 AI Calling Agent (Realtime Voice Assistant)
 
-The application opens websockets with the OpenAI Realtime API and Twilio, and sends voice audio from one to the other to enable a two-way conversation.
+This project demonstrates an intelligent voice-based call agent built using Python, Twilio Media Streams, and a locally managed realtime NLP engine. It simulates how AI can engage in human-like phone conversations — including listening, interpreting, interrupting, and responding — making it ideal for inbound call automation use cases.
+
+---
+
+## 💡 Overview
+
+The AI Calling Agent enables real-time, two-way audio communication between a caller and an AI assistant. Voice is streamed using Twilio's Media Streams and processed locally for intent recognition and response generation.
+
+Unlike simple chatbot demos, this solution:
+- Maintains persistent conversation context
+- Handles interruptions and speech truncation
+- Integrates low-latency audio feedback
+- Provides modularity for plugging in custom NLP models
+
+---
+
+## ⚙️ Tech Stack
+
+- **Python 3.10+**
+- **Twilio Voice + Media Streams**
+- **WebSockets (bi-directional audio)**
+- **Vosk / Custom ASR (optional)**
+- **Uvicorn + FastAPI for serving real-time logic**
+- **.env-driven configuration for secure credentials**
+
+---
+
+## 📦 Features
+
+- 🔄 Full-duplex audio streaming between Twilio and app
+- 🧠 Intent-based dynamic response system
+- 🔊 Customizable voice prompts and responses
+- 🛑 User interruption detection and stream reset
+- 🔐 Secure config with `.env` and `.gitignore`
+- 🐳 Docker-ready for production deployment
+
+---
+
+## 📚 Use Cases
+Customer support automation
+
+Voice-enabled internal helpdesks
+
+Virtual receptionists
+
+Survey bots for feedback collection
+
+Lead qualification calls
+
+---
+
+
+🛡 Security Note
+All secrets are kept in .env (excluded via .gitignore)
+
+No credentials are exposed in the codebase or Git history
+
+🙌 Credits
+Inspired by real-world use cases integrating voice AI in production pipelines. Extended with flexible architecture for local NLP + cloud hybrid deployment.
+
+## 🚀 Getting Started
+
 
 See here for a tutorial overview of the code.
 
@@ -77,3 +137,7 @@ Interrupt handling/AI preemption
 When the user speaks and OpenAI sends input_audio_buffer.speech_started, the code will clear the Twilio Media Streams buffer and send OpenAI conversation.item.truncate.
 
 Depending on your application's needs, you may want to use the input_audio_buffer.speech_stopped event, instead, or a combination of the two.
+
+
+
+
